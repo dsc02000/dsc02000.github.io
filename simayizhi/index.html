@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="司马懿之死专题页，深度解析三国时期司马懿病逝的经过、历史背景及后世影响。提供司马懿生平事迹、高平陵之变、家族兴衰及相关历史文献考据。">
+    <meta name="keywords" content="司马懿之死,司马懿,三国历史,高平陵之变,司马家族,魏国历史">
+    <title>司马懿之死 - 三国历史深度解析与生平考据</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #c0392b;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --border-color: #e1e4e8;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* 主要内容区 */
+        main {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        /* 事件时间轴 */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid var(--border-color);
+            margin-left: 1rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.6rem;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--border-color);
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* 文章内容网格 */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .article-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+            margin-bottom: 2rem;
+        }
+
+        .article-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .article-card p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .article-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin: 1rem 0;
+            display: block;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+        }
+
+        .sidebar-widget h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .info-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-list strong {
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        /* 统计图表模拟 */
+        .stat-bar {
+            margin-bottom: 1rem;
+        }
+
+        .stat-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-track {
+            height: 8px;
+            background: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .stat-fill {
+            height: 100%;
+            background: var(--accent-color);
+        }
+
+        /* 知识问答 */
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .timeline {
+                padding-left: 1rem;
+            }
+
+            .timeline-item::before {
+                left: -1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span>◆</span> 三国历史志
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">三国人物</a></li>
+                    <li><a href="#">三国战役</a></li>
+                    <li><a href="#">历史文献</a></li>
+                    <li><a href="#">关于本站</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>司马懿之死</h1>
+            <p>从高平陵之变到家族兴衰，深度解析这位终结三国乱世的权臣最终归宿与历史影响。</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="content-grid">
+            <!-- 左侧主要内容 -->
+            <div class="main-column">
+                <h2 class="section-title">历史背景与死因</h2>
+                
+                <article class="article-card">
+                    <h3>病逝洛阳，享年七十三岁</h3>
+                    <p>景初三年（239年）正月，魏明帝曹叡病危。当时，太尉司马懿与中书监刘放、中书令孙资在病榻前侍奉。曹叡深知司马懿的才干与威望，但对其家族的潜在威胁也心存忌惮。在刘放、孙资的进言下，曹叡决定改立燕王曹宇为大将军，统率诸军。</p>
+                    <p>然而，这一决定遭到了曹宇的拒绝，同时也引起了曹爽的不满。为了稳住局势，曹叡在临终前下诏，剥夺了曹宇的兵权，并急召司马懿入宫辅政。同年正月初六，曹叡驾崩，年仅八岁的曹芳即位，由曹爽和司马懿共同辅政。</p>
+                    <p>司马懿在曹叡驾崩后不久，便被加封为太傅。他虽名义上地位崇高，但实际上大权逐渐落入曹爽手中。司马懿深知曹爽对他心存猜忌，为了麻痹对方，他开始称病不朝，甚至在家中装作神志不清的样子。</p>
+                </article>
+
+                <article class="article-card">
+                    <h3>高平陵之变：最后的反击</h3>
+                    <p>正始十年（249年）正月初六，正值司马懿的生日。他称病在家，曹爽及其弟曹羲、曹训等亲信认为司马懿已经奄奄一息，便带着小皇帝曹芳出城祭拜高平陵。</p>
+                    <p>就在曹爽一行人离开洛阳后，司马懿立即脱下病服，披挂上阵，命令司马师、司马昭率领中军控制武库，并派兵封锁洛水浮桥。随后，他以皇太后的名义颁布诏书，历数曹爽专权乱政的罪状，宣布罢免曹爽及其党羽的官职。</p>
+                    <p>曹爽在城外得知消息后，进退失据。最终，在洛阳尹李胜的劝说下，曹爽决定投降，交出兵权，并返回府第等待处置。司马懿随即接管了曹魏的军政大权，彻底清除了曹爽势力。</p>
+                </article>
+
+                <article class="article-card">
+                    <h3>死后追封与家族命运</h3>
+                    <p>高平陵之变后，司马懿并未安享晚年。同年九月，司马懿病逝，享年七十三岁。曹芳追赠其为相国、晋王，谥号为文贞。后来，其子司马炎建立晋朝后，追尊他为宣皇帝，陵墓为高原陵。</p>
+                    <p>司马懿的一生，是典型的权臣一生。他早年辅佐曹操、曹丕、曹叡三代，在汉末乱世中积累了深厚的政治资本和军事才能。晚年的高平陵之变，不仅改变了他个人的命运，更彻底改变了曹魏的政局，为司马家族后来代魏建晋奠定了坚实基础。</p>
+                </article>
+
+                <h2 class="section-title">司马懿生平大事记</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">179年</div>
+                        <div class="timeline-content">
+                            <h3>出生</h3>
+                            <p>司马懿出生于河内温县的一个世族家庭。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">208年</div>
+                        <div class="timeline-content">
+                            <h3>加入曹营</h3>
+                            <p>曹操征辟司马懿为文学掾，开始仕途生涯。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">239年</div>
+                        <div class="timeline-content">
+                            <h3>受遗诏辅政</h3>
+                            <p>魏明帝曹叡临终，与曹爽共同辅政。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">249年</div>
+                        <div class="timeline-content">
+                            <h3>高平陵之变</h3>
+                            <p>发动政变，诛杀曹爽，独揽朝政大权。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">251年</div>
+                        <div class="timeline-content">
+                            <h3>病逝</h3>
+                            <p>司马懿在洛阳病逝，结束其波澜壮阔的一生。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧侧边栏 -->
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <h3>人物画像</h3>
+                    <div style="background:#eee; height:200px; display:flex; align-items:center; justify-content:center; color:#666; border-radius:4px;">
+                        [司马懿画像]
+                    </div>
+                    <p style="margin-top:10px; font-size:0.9rem;">司马懿形象多见于古代历史画册，通常描绘为头戴官帽、神态沉稳的权臣形象。</p>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>家族关系</h3>
+                    <ul class="info-list">
+                        <li>
+                            <strong>父亲</strong>
+                            <span>司马防</span>
+                        </li>
+                        <li>
+                            <strong>长子</strong>
+                            <span>司马师</span>
+                        </li>
+                        <li>
+                            <strong>次子</strong>
+                            <span>司马昭</span>
+                        </li>
+                        <li>
+                            <strong>孙子</strong>
+                            <span>司马炎</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>主要战役</h3>
+                    <ul class="info-list">
+                        <li><strong>擒杀孟达</strong><span>新城之战</span></li>
+                        <li><strong>抵御诸葛亮</strong><span>五丈原之战</span></li>
+                        <li><strong>平定辽东</strong><span>公孙渊之乱</span></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>历史评价</h3>
+                    <p style="font-size:0.9rem; color:#555;">“隐忍以待时，鹰视狼顾，实乃乱世枭雄。”</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>三国历史志</h4>
+                    <p style="color:#aaa; font-size:0.9rem;">致力于还原真实的三国历史，提供严谨的历史考据与通俗的阅读体验。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">三国地图</a></li>
+                        <li><a href="#">兵器谱</a></li>
+                        <li><a href="#">官职表</a></li>
+                        <li><a href="#">年表</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>相关人物</h4>
+                    <ul>
+                        <li><a href="#">曹操</a></li>
+                        <li><a href="#">刘备</a></li>
+                        <li><a href="#">诸葛亮</a></li>
+                        <li><a href="#">孙权</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 三国历史志 版权所有. 本站内容仅供学习参考，不代表历史定论。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
