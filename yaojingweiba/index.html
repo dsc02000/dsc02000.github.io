@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>妖精尾巴-魔法公会百科与同人图鉴</title>
+    <meta name="description" content="妖精尾巴(Fairy Tail)漫画与动画资料站，提供角色图鉴、剧情解析、公会介绍及同人作品分享，探索梅比斯的魔法世界。">
+    <meta name="keywords" content="妖精尾巴, Fairy Tail, 魔法, 漫画, 动画, 角色图鉴, 梅比斯">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff4d4d;
+            --secondary-color: #ff9e9e;
+            --dark-bg: #1a1a2e;
+            --card-bg: #16213e;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --accent-gold: #ffd700;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background: rgba(26, 26, 46, 0.95);
+            border-bottom: 3px solid var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0 var(--spacing-unit);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(to bottom, rgba(26, 26, 46, 0.3), var(--dark-bg)), 
+                        url('https://picsum.photos/seed/fairytalebg/1920/1080.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            background: linear-gradient(45deg, #fff, var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #e60000;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--text-main);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        /* Character Grid */
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .char-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            border: 1px solid transparent;
+        }
+
+        .char-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-color);
+        }
+
+        .char-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background-color: #2a2a40;
+        }
+
+        .char-info {
+            padding: 20px;
+        }
+
+        .char-name {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--accent-gold);
+        }
+
+        .char-title {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .char-desc {
+            font-size: 0.95rem;
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        /* About Section */
+        .about-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #ddd;
+        }
+
+        .about-stats {
+            flex: 1;
+            min-width: 300px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 200px;
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f0f1a;
+            padding: 40px 20px;
+            margin-top: 60px;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 10px 0;
+            }
+            
+            nav {
+                width: 100%;
+                margin-top: 10px;
+                display: none;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-section {
+                padding: 20px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <span>✦</span> 妖精尾巴
+            </a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav id="navbar">
+                <ul>
+                    <li><a href="#about">公会简介</a></li>
+                    <li><a href="#characters">主要成员</a></li>
+                    <li><a href="#gallery">同人图集</a></li>
+                    <li><a href="#lore">剧情解析</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>妖精尾巴的传说</h1>
+                <p>在这个魔法的世界里，友情与羁绊是超越一切的力量。探索梅比斯所创立的公会，见证纳兹与伙伴们的冒险旅程。</p>
+                <div class="hero-buttons">
+                    <a href="#characters" class="btn">查看角色图鉴</a>
+                    <a href="#about" class="btn btn-outline">了解公会</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="container">
+            <div class="section-title">
+                <h2>公会简介</h2>
+            </div>
+            <div class="about-section">
+                <div class="about-text">
+                    <h3>梅比斯的魔法公会</h3>
+                    <p>妖精尾巴是位于菲奥雷王国的一个魔导士公会。公会以“妖精”为名，象征着自由与不受束缚的精神。这里聚集了各种各样的魔导士，从拥有毁灭力量的S级魔导士到初出茅庐的少年少女，每个人都怀揣着各自的梦想。</p>
+                    <p>公会的纹章是梅比斯留下的“妖精的尾巴”。在公会中，成员之间如同家人般相处，即使面临生死考验，也会毫不犹豫地保护彼此。这种深厚的羁绊，正是妖精尾巴最强大的魔力源泉。</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">活跃成员</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">S级</span>
+                        <span class="stat-label">顶尖战力</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">千年</span>
+                        <span class="stat-label">悠久历史</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">无限</span>
+                        <span class="stat-label">羁绊羁绊</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Characters Section -->
+        <section id="characters" class="container">
+            <div class="section-title">
+                <h2>主要成员</h2>
+            </div>
+            <div class="character-grid">
+                <!-- Character 1 -->
+                <article class="char-card">
+                    <img src="https://picsum.photos/seed/natsu/400/400.jpg" alt="纳兹·多拉格尼尔" class="char-img">
+                    <div class="char-info">
+                        <h3 class="char-name">纳兹·多拉格尼尔</h3>
+                        <span class="char-title">灭龙魔导士 / 队长</span>
+                        <p class="char-desc">为了寻找伊格尼尔而踏上旅途，性格热血冲动，最讨厌输给别人。使用火焰灭龙魔法。</p>
+                    </div>
+                </article>
+                <!-- Character 2 -->
+                <article class="char-card">
+                    <img src="https://picsum.photos/seed/lucy/400/400.jpg" alt="露西·哈特菲利亚" class="char-img">
+                    <div class="char-info">
+                        <h3 class="char-name">露西·哈特菲利亚</h3>
+                        <span class="char-title">星灵魔导士 / 入会者</span>
+                        <p class="char-desc">为了加入妖精尾巴而来到斐扬，拥有开启十二星灵之门的能力，是纳兹最好的搭档。</p>
+                    </div>
+                </article>
+                <!-- Character 3 -->
+                <article class="char-card">
+                    <img src="https://picsum.photos/seed/gajeel/400/400.jpg" alt="格雷·佛尔帕斯塔" class="char-img">
+                    <div class="char-info">
+                        <h3 class="char-name">格雷·佛尔帕斯塔</h3>
+                        <span class="char-title">冰之造型魔导士</span>
+                        <p class="char-desc">纳兹的死对头，性格冷静且有些傲娇，擅长使用冰之造型魔法制造武器和盾牌。</p>
+                    </div>
+                </article>
+                <!-- Character 4 -->
+                <article class="char-card">
+                    <img src="https://picsum.photos/seed/erza/400/400.jpg" alt="艾尔莎·史卡雷特" class="char-img">
+                    <div class="char-info">
+                        <h3 class="char-name">艾尔莎·史卡雷特</h3>
+                        <span class="char-title">红发魔导士 / 战力担当</span>
+                        <p class="char-desc">拥有能够瞬间装备多种盔甲的能力，妖精尾巴最强的魔导士之一，被称为“妖精女王”。</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="container">
+            <div class="section-title">
+                <h2>同人图集</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/fairytail1/600/400.jpg" alt="公会聚会">
+                    <div class="gallery-overlay">
+                        <h4>公会聚会</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/fairytail2/600/400.jpg" alt="魔法对决">
+                    <div class="gallery-overlay">
+                        <h4>魔法对决</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/fairytail3/600/400.jpg" alt="月光艾露莎">
+                    <div class="gallery-overlay">
+                        <h4>月光艾露莎</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/fairytail4/600/400.jpg" alt="星灵之门">
+                    <div class="gallery-overlay">
+                        <h4>星灵之门</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lore / FAQ Section -->
+        <section id="lore" class="container">
+            <div class="section-title">
+                <h2>常见问题 (FAQ)</h2>
+            </div>
+            <article style="background-color: var(--card-bg); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                <h3 style="color: var(--primary-color); margin-bottom: 10px;">妖精尾巴的标志是什么含义？</h3>
+                <p style="color: #ddd;">标志中的“尾巴”象征着公会的自由精神和不拘泥于形式的个性。这根尾巴代表着一群人紧紧相连，共同行动，像一条尾巴一样不分彼此，共同面对风浪。</p>
+            </article>
+            <article style="background-color: var(--card-bg); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                <h3 style="color: var(--primary-color); margin-bottom: 10px;">谁是妖精尾巴的创始人？</h3>
+                <p style="color: #ddd;">妖精尾巴是由梅比斯·维尔莱特在100多年前创立的。她是一位拥有强大魔力的白魔导士，也是公会真正的灵魂人物。</p>
+            </article>
+            <article style="background-color: var(--card-bg); padding: 20px; border-radius: 8px;">
+                <h3 style="color: var(--primary-color); margin-bottom: 10px;">妖精尾巴和塔克西亚有什么关系？</h3>
+                <p style="color: #ddd;">塔克西亚是妖精尾巴著名的魔导器，外形像是一只可爱的小狗。它拥有极高的智力，经常在公会的任务中提供帮助，是纳兹等人的重要伙伴。</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">版权声明</a>
+            <a href="#">免责声明</a>
+            <a href="#">联系管理员</a>
+        </div>
+        <p class="copyright">
+            本站为非盈利性同人资料站，内容仅供学习交流与欣赏。<br>
+            妖精尾巴及相关角色版权归原作者及动画制作公司所有。
+        </p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('navbar');
+            nav.classList.toggle('active');
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('navbar').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
