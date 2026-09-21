@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="钢琴谱简谱大全，提供经典流行、影视动漫、儿歌童谣等各类曲目的简谱与钢琴谱下载，支持在线试听与调号调整，是钢琴初学者与爱好者的实用乐谱资源站。">
+    <meta name="keywords" content="钢琴谱简谱,简谱下载,钢琴曲谱,流行钢琴谱,动漫钢琴谱">
+    <title>钢琴谱简谱-流行与经典曲谱在线资源站</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-sub: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .search-box {
+            display: flex;
+            background: #f1f3f5;
+            border-radius: 20px;
+            padding: 4px 12px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            padding: 4px;
+            width: 150px;
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-sub);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.15);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .tag:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 32px;
+        }
+
+        /* Sidebar */
+        aside {
+            position: sticky;
+            top: 90px;
+            height: fit-content;
+        }
+
+        .category-list {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .category-item {
+            padding: 14px 20px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .category-item:last-child {
+            border-bottom: none;
+        }
+
+        .category-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .category-item.active {
+            background-color: #fff0f0;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* Content Area */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 16px;
+        }
+
+        .section-header h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .sort-options select {
+            padding: 6px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        /* Grid Layout for Sheets */
+        .sheet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 24px;
+        }
+
+        .sheet-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sheet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-img-placeholder {
+            height: 140px;
+            background-color: #e0e0e0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-img-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--accent-color);
+            color: white;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .card-content {
+            padding: 16px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sheet-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .sheet-meta {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .sheet-actions {
+            margin-top: auto;
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 8px;
+            text-align: center;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #34495e;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: #f1f3f5;
+        }
+
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 40px 0;
+            margin-top: 40px;
+            border-top: 1px solid #eee;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .feature-item h3 {
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .feature-item p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                height: auto;
+                padding: 12px;
+                gap: 12px;
+            }
+
+            nav ul {
+                gap: 16px;
+                font-size: 0.9rem;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .search-box input {
+                flex: 1;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                position: static;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                🎹 钢琴谱<span>简谱</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">流行</a></li>
+                    <li><a href="#">影视</a></li>
+                    <li><a href="#">动漫</a></li>
+                    <li><a href="#">古典</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索曲名、歌手...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>寻找你的下一首钢琴曲</h1>
+        <p>海量钢琴谱简谱资源，支持在线预览与高清下载。无论你是初学者还是演奏者，这里都有适合你的乐谱。</p>
+        <div class="hero-tags">
+            <span class="tag">梦中的婚礼</span>
+            <span class="tag">克罗地亚狂想曲</span>
+            <span class="tag">菊次郎的夏天</span>
+            <span class="tag">天空之城</span>
+            <span class="tag">卡农</span>
+        </div>
+    </section>
+
+    <div class="container">
+        <aside>
+            <div class="category-list">
+                <div class="category-item active">🔥 热门推荐</div>
+                <div class="category-item">🎵 流行金曲</div>
+                <div class="category-item">🎬 影视原声</div>
+                <div class="category-item">📺 动漫配乐</div>
+                <div class="category-item">🎼 古典名曲</div>
+                <div class="category-item">👶 儿歌童谣</div>
+                <div class="category-item">🎹 简易入门</div>
+            </div>
+        </aside>
+
+        <main>
+            <div class="section-header">
+                <h2>今日热门钢琴谱</h2>
+                <div class="sort-options">
+                    <select>
+                        <option>最新发布</option>
+                        <option>下载最多</option>
+                        <option>评分最高</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="sheet-grid">
+                <!-- Card 1 -->
+                <article class="sheet-card">
+                    <div class="card-img-placeholder">
+                        <span class="card-badge">简谱</span>
+                        <img src="https://picsum.photos/seed/piano1/400/300" alt="梦中的婚礼封面">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="sheet-title">梦中的婚礼 - Richard Clayderman</h3>
+                        <div class="sheet-meta">
+                            <span>难度：⭐⭐⭐</span>
+                            <span>2023-10-24</span>
+                        </div>
+                        <div class="sheet-actions">
+                            <button class="btn btn-outline">试听</button>
+                            <button class="btn btn-primary">下载</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="sheet-card">
+                    <div class="card-img-placeholder">
+                        <span class="card-badge">简谱</span>
+                        <img src="https://picsum.photos/seed/piano2/400/300" alt="克罗地亚狂想曲封面">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="sheet-title">克罗地亚狂想曲 - Maksim</h3>
+                        <div class="sheet-meta">
+                            <span>难度：⭐⭐⭐⭐</span>
+                            <span>2023-10-22</span>
+                        </div>
+                        <div class="sheet-actions">
+                            <button class="btn btn-outline">试听</button>
+                            <button class="btn btn-primary">下载</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="sheet-card">
+                    <div class="card-img-placeholder">
+                        <span class="card-badge">简谱</span>
+                        <img src="https://picsum.photos/seed/piano3/400/300" alt="菊次郎的夏天封面">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="sheet-title">Summer - 菊次郎的夏天</h3>
+                        <div class="sheet-meta">
+                            <span>难度：⭐⭐</span>
+                            <span>2023-10-20</span>
+                        </div>
+                        <div class="sheet-actions">
+                            <button class="btn btn-outline">试听</button>
+                            <button class="btn btn-primary">下载</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="sheet-card">
+                    <div class="card-img-placeholder">
+                        <span class="card-badge">简谱</span>
+                        <img src="https://picsum.photos/seed/piano4/400/300" alt="天空之城封面">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="sheet-title">天空之城 - 久石让</h3>
+                        <div class="sheet-meta">
+                            <span>难度：⭐⭐⭐</span>
+                            <span>2023-10-18</span>
+                        </div>
+                        <div class="sheet-actions">
+                            <button class="btn btn-outline">试听</button>
+                            <button class="btn btn-primary">下载</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="sheet-card">
+                    <div class="card-img-placeholder">
+                        <span class="card-badge">简谱</span>
+                        <img src="https://picsum.photos/seed/piano5/400/300" alt="卡农封面">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="sheet-title">卡农 - Pachelbel</h3>
+                        <div class="sheet-meta">
+                            <span>难度：⭐⭐</span>
+                            <span>2023-10-15</span>
+                        </div>
+                        <div class="sheet-actions">
+                            <button class="btn btn-outline">试听</button>
+                            <button class="btn btn-primary">下载</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="sheet-card">
+                    <div class="card-img-placeholder">
+                        <span class="card-badge">简谱</span>
+                        <img src="https://picsum.photos/seed/piano6/400/300" alt="致爱丽丝封面">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="sheet-title">致爱丽丝 - 贝多芬</h3>
+                        <div class="sheet-meta">
+                            <span>难度：⭐⭐</span>
+                            <span>2023-10-12</span>
+                        </div>
+                        <div class="sheet-actions">
+                            <button class="btn btn-outline">试听</button>
+                            <button class="btn btn-primary">下载</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="btn btn-primary" style="padding: 12px 40px; font-size: 1rem;">查看更多曲谱</button>
+            </div>
+        </main>
+    </div>
+
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">📑</div>
+                <h3>高清曲谱</h3>
+                <p>提供高清晰度的图片格式简谱与钢琴谱，方便打印与临摹。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🎵</div>
+                <h3>在线试听</h3>
+                <p>部分曲谱附带音频试听功能，帮助您更好地理解曲调与节奏。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">⚙️</div>
+                <h3>调号调整</h3>
+                <p>支持一键调整曲谱调号，适配不同音域的钢琴与乐器。</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">免责声明</a>
+                <a href="#">版权声明</a>
+                <a href="#">联系合作</a>
+                <a href="#">提交曲谱</a>
+            </div>
+            <p class="copyright">Copyright © 2023 钢琴谱简谱资源站. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+          </html>
