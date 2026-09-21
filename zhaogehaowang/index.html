@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="好网名生成器 - 为您提供最新、最潮、最好听的网名推荐。包含男生网名、女生网名、情侣网名、游戏网名及个性签名，助您打造独特个人标识。">
+    <meta name="keywords" content="好网名,网名生成器,网名大全,男生网名,女生网名,情侣网名,个性签名">
+    <title>好网名-潮流网名推荐与个性签名生成平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --accent-color: #00cec9;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #2d3436;
+            --text-light: #636e72;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部导航 */
+        header {
+            background: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            text-align: center;
+            padding: 80px 0 60px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 16px 24px;
+            padding-right: 120px;
+            font-size: 1rem;
+            border: 2px solid #e1e1e1;
+            border-radius: 50px;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.1);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 6px;
+            top: 6px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .search-btn:hover {
+            background: #5649c0;
+            transform: translateY(-1px);
+        }
+
+        /* 分类标签 */
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .tag {
+            background: var(--card-bg);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            cursor: pointer;
+            border: 1px solid #eee;
+            transition: var(--transition);
+        }
+
+        .tag:hover, .tag.active {
+            background: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+        }
+
+        /* 主要内容区 */
+        main {
+            padding-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin: 60px 0 30px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* 网名卡片网格 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .name-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid transparent;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .name-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-color);
+        }
+
+        .name-content {
+            margin-bottom: 16px;
+        }
+
+        .name-text {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            word-break: break-all;
+        }
+
+        .name-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .name-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .mini-tag {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: #f0f0f0;
+            color: var(--text-light);
+        }
+
+        .action-row {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .btn-copy {
+            flex: 1;
+            padding: 8px;
+            background: #f1f2f6;
+            color: var(--text-main);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .btn-copy:hover {
+            background: #dfe4ea;
+        }
+
+        .btn-copy.copied {
+            background: #55efc4;
+            color: #00b894;
+        }
+
+        /* 情侣专区 */
+        .couple-section {
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+        }
+
+        .couple-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .couple-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .couple-names {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .c-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .c-emoji {
+            font-size: 2rem;
+        }
+
+        /* 底部 */
+        footer {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #b2bec3;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #636e72;
+            font-size: 0.9rem;
+            color: #636e72;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+
+            .couple-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .couple-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <span>✨</span> 好网名
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">男生网名</a></li>
+                    <li><a href="#">女生网名</a></li>
+                    <li><a href="#">情侣网名</a></li>
+                    <li><a href="#">游戏ID</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero">
+                <h1>打造你的专属个性标识</h1>
+                <p>无论你是想要文艺清新、高冷霸气，还是搞怪可爱，这里都有适合你的好网名。一键复制，即刻拥有。</p>
+                
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="输入关键词，如：酷、梦、星...">
+                    <button class="search-btn" onclick="filterNames()">搜索</button>
+                </div>
+
+                <div class="categories">
+                    <span class="tag active" onclick="filterCategory('all')">全部</span>
+                    <span class="tag" onclick="filterCategory('cool')">高冷</span>
+                    <span class="tag" onclick="filterCategory('love')">可爱</span>
+                    <span class="tag" onclick="filterCategory('literary')">文艺</span>
+                    <span class="tag" onclick="filterCategory('game')">游戏</span>
+                    <span class="tag" onclick="filterCategory('dark')">暗黑</span>
+                </div>
+            </section>
+
+            <!-- 热门推荐 -->
+            <section>
+                <h2 class="section-title">🔥 热门精选</h2>
+                <div class="grid" id="nameGrid">
+                    <!-- Javascript will populate this -->
+                </div>
+            </section>
+
+            <!-- 情侣专区 -->
+            <section class="couple-section">
+                <h2 class="section-title" style="margin-top:0; margin-bottom: 30px;">💕 情侣专属</h2>
+                <div class="couple-grid">
+                    <div class="couple-item">
+                        <div class="couple-names">
+                            <span class="c-name">山野千里</span>
+                            <span class="mini-tag">文艺/深情</span>
+                        </div>
+                        <div class="c-emoji">🌙</div>
+                    </div>
+                    <div class="couple-item">
+                        <div class="couple-names">
+                            <span class="c-name">你是我星河</span>
+                            <span class="mini-tag">浪漫/甜蜜</span>
+                        </div>
+                        <div class="c-emoji">✨</div>
+                    </div>
+                    <div class="couple-item">
+                        <div class="couple-names">
+                            <span class="c-name">南风知我意</span>
+                            <span class="mini-tag">古风/唯美</span>
+                        </div>
+                        <div class="c-emoji">🍃</div>
+                    </div>
+                    <div class="couple-item">
+                        <div class="couple-names">
+                            <span class="c-name">吹梦到西洲</span>
+                            <span class="mini-tag">古风/诗意</span>
+                        </div>
+                        <div class="c-emoji">🌊</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 男生专区 -->
+            <section>
+                <h2 class="section-title">🚀 男生网名</h2>
+                <div class="grid" id="maleGrid">
+                    <!-- Javascript will populate this -->
+                </div>
+            </section>
+
+            <!-- 女生专区 -->
+            <section>
+                <h2 class="section-title">🌸 女生网名</h2>
+                <div class="grid" id="femaleGrid">
+                    <!-- Javascript will populate this -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>关于好网名</h3>
+                    <p style="font-size: 0.9rem; color: #b2bec3;">我们致力于为用户提供最新、最全、最好看的网名资源。无论社交软件还是游戏平台，这里都能满足你的需求。</p>
+                </div>
+                <div class="footer-col">
+                    <h3>分类导航</h3>
+                    <ul>
+                        <li><a href="#">男生网名</a></li>
+                        <li><a href="#">女生网名</a></li>
+                        <li><a href="#">情侣网名</a></li>
+                        <li><a href="#">游戏ID</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>使用帮助</h3>
+                    <ul>
+                        <li><a href="#">如何复制</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">用户反馈</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 好网名平台. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 模拟网名数据
+        const nameData = [
+            { name: "半岛弥音", desc: "文艺清新的风格", tags: ["literary", "cool"], emoji: "🎵" },
+            { name: "孤岛听风", desc: "孤独而自由", tags: ["cool", "dark"], emoji: "🌊" },
+            { name: "草莓味的梦", desc: "甜美可爱", tags: ["love"], emoji: "🍓" },
+            { name: "北城旧梦", desc: "怀旧复古", tags: ["literary"], emoji: "🏙️" },
+            { name: "剑指苍穹", desc: "霸气侧漏", tags: ["game", "cool"], emoji: "⚔️" },
+            { name: "浅笑安然", desc: "温柔气质", tags: ["love", "literary"], emoji: "🌸" },
+            { name: "深海未眠", desc: "神秘深邃", tags: ["dark", "cool"], emoji: "🐙" },
+            { name: "奶盖小可爱", desc: "活泼俏皮", tags: ["love"], emoji: "🥤" },
+            { name: "执笔画倾城", desc: "古风唯美", tags: ["literary"], emoji: "🖌️" },
+            { name: "暗夜行者", desc: "神秘刺客", tags: ["dark", "game"], emoji: "🌑" },
+            { name: "薄荷微凉", desc: "清新脱俗", tags: ["cool", "literary"], emoji: "🍃" },
+            { name: "星辰大海", desc: "胸怀宽广", tags: ["cool"], emoji: "🌌" }
+        ];
+
+        const maleData = [
+            { name: "逆风执剑", desc: "少年热血", tags: ["game", "cool"], emoji: "🛡️" },
+            { name: "顾北清歌", desc: "温润如玉", tags: ["literary"], emoji: "🍵" },
+            { name: "独步天下", desc: "无敌霸气", tags: ["cool"], emoji: "👑" },
+            { name: "墨染青衣", desc: "古风雅士", tags: ["literary"], emoji: "📜" },
+            { name: "野性难驯", desc: "不羁放纵", tags: ["cool", "dark"], emoji: "🐺" }
+        ];
+
+        const femaleData = [
+            { name: "裙摆摇曳", desc: "优雅迷人", tags: ["love"], emoji: "👗" },
+            { name: "陌上花开", desc: "古典美", tags: ["literary"], emoji: "🌺" },
+            { name: "冷艳女王", desc: "御姐风范", tags: ["cool", "dark"], emoji: "👑" },
+            { name: "软糖少女", desc: "元气满满", tags: ["love"], emoji: "🍬" },
+            { name: "月下独酌", desc: "清冷孤傲", tags: ["cool", "literary"], emoji: "🌙" }
+        ];
+
+        // 渲染函数
+        function createCard(item) {
+            return `
+                <article class="name-card">
+                    <div class="name-content">
+                        <div class="name-text">${item.name}</div>
+                        <div class="name-desc">${item.desc}</div>
+                        <div class="name-tags">
+                            ${item.tags.map(tag => `<span class="mini-tag">${getTagName(tag)}</span>`).join('')}
+                        </div>
+                    </div>
+                    <div class="action-row">
+                        <button class="btn-copy" onclick="copyName(this, '${item.name}')">复制</button>
+                    </div>
+                </article>
+            `;
+        }
+
+        function getTagName(tag) {
+            const map = {
+                'cool': '高冷',
+                'love': '可爱',
+                'literary': '文艺',
+                'game': '游戏',
+                'dark': '暗黑'
+            };
+            return map[tag] || tag;
+        }
+
+        // 初始化页面
+        function init() {
+            const grid = document.getElementById('nameGrid');
+            const maleGrid = document.getElementById('maleGrid');
+            const femaleGrid = document.getElementById('femaleGrid');
+
+            // 渲染热门
+            grid.innerHTML = nameData.map(item => createCard(item)).join('');
+            
+            // 渲染男生
+            maleGrid.innerHTML = maleData.map(item => createCard(item)).join('');
+            
+            // 渲染女生
+            femaleGrid.innerHTML = femaleData.map(item => createCard(item)).join('');
+        }
+
+        // 复制功能
+        function copyName(btn, text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = '已复制';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('复制失败', err);
+                // 降级处理
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                btn.innerText = '已复制';
+                setTimeout(() => btn.innerText = '复制', 2000);
+            });
+        }
+
+        // 搜索过滤
+        function filterNames() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const allCards = document.querySelectorAll('.name-card');
+            
+            allCards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // 分类标签过滤
+        function filterCategory(category) {
+            // 更新标签样式
+            document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const allCards = document.querySelectorAll('.name-card');
+            
+            allCards.forEach(card => {
+                const tags = card.querySelectorAll('.mini-tag');
+                let hasTag = false;
+                
+                if (category === 'all') {
+                    hasTag = true;
+                } else {
+                    tags.forEach(tag => {
+                        if (tag.innerText === getTagName(category)) {
+                            hasTag = true;
+                        }
+                    });
+                }
+
+                card.style.display = hasTag ? 'flex' : 'none';
+            });
+        }
+
+        // 监听回车搜索
+        document.getElementById('searchInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                filterNames();
+            }
+        });
+
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', init);
+
+    </script>
+</body>
+  </html>
