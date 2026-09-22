@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="龙影辅助官网，提供专业的游戏辅助工具下载、使用教程、版本更新及安全防护指南，致力于为玩家打造高效、稳定的游戏体验。">
+    <meta name="keywords" content="龙影辅助, 游戏辅助, 游戏外挂, 安全辅助, 游戏工具">
+    <title>龙影辅助-专业游戏安全辅助工具与使用指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #00d2ff;
+            --secondary-color: #3a7bd5;
+            --accent-color: #ff0055;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 210, 255, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: rgba(0, 210, 255, 0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #fff, var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 6rem 0;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(58, 123, 213, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 .highlight {
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--accent-color);
+            opacity: 0.3;
+            z-index: -1;
+            transform: skewX(-20deg);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Features */
+        .features {
+            padding: 5rem 0;
+            background-color: var(--bg-dark);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 210, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Game List */
+        .games {
+            padding: 5rem 0;
+            background-color: #162032;
+        }
+
+        .game-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary-color);
+            color: #fff;
+            border-color: var(--primary-color);
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .game-card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .game-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--secondary-color);
+        }
+
+        .game-img {
+            width: 100%;
+            height: 160px;
+            background-color: #2d3748;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .game-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .game-card:hover .game-img img {
+            transform: scale(1.05);
+        }
+
+        .game-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .game-info {
+            padding: 1.5rem;
+        }
+
+        .game-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .game-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .download-btn {
+            width: 100%;
+            padding: 0.5rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            color: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .download-btn:hover {
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        /* Safety & Guide */
+        .guide {
+            padding: 5rem 0;
+            background-color: var(--bg-dark);
+        }
+
+        .guide-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .guide-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .guide-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .check-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .check-list li::before {
+            content: '✓';
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .guide-box {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .guide-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .guide-box ol {
+            padding-left: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .guide-box li {
+            margin-bottom: 0.8rem;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 5rem 0;
+            background-color: #162032;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: none; /* JS will toggle */
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0b1120;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-info p {
+            color: var(--text-muted);
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none; /* In a real scenario, JS would toggle this */
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .guide-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <span>龙</span>影辅助
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#features" class="active">核心功能</a></li>
+                    <li><a href="#games">支持游戏</a></li>
+                    <li><a href="#guide">安全指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="#download" class="btn btn-primary">立即下载</a>
+                    <button class="mobile-menu-btn">☰</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>打造极致游戏体验<br><span class="highlight">龙影辅助</span> 随心掌控</h1>
+                <p>专为玩家打造的安全、稳定、智能游戏辅助工具。告别繁琐操作，享受流畅竞技，让每一场对局都游刃有余。</p>
+                <div class="hero-actions">
+                    <a href="#download" class="btn btn-primary" style="padding: 0.8rem 2rem; font-size: 1.1rem;">下载客户端</a>
+                    <a href="#guide" class="btn btn-outline" style="margin-left: 1rem;">查看使用教程</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>绿色安全无弹窗</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24/7</h3>
+                        <p>全天候技术支持</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>10W+</h3>
+                        <p>玩家信赖选择</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>核心功能亮点</h2>
+                    <p>技术驱动体验，细节决定成败</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>智能自动化</h3>
+                        <p>内置多种智能算法，自动识别游戏场景，实现挂机、刷怪、采集等重复性操作的自动化，解放双手。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>云端防封保护</h3>
+                        <p>采用自主研发的云端指纹模拟技术，有效规避游戏反作弊检测，确保账号安全，长久稳定使用。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <h3>极致性能优化</h3>
+                        <p>轻量级内核设计，占用系统资源极低，不卡顿、不卡顿、不闪退，运行如丝般顺滑。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🎮</div>
+                        <h3>多端通用适配</h3>
+                        <p>支持Windows全系列操作系统，适配主流硬件配置，为不同玩家提供最佳运行环境。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>数据实时监控</h3>
+                        <p>内置数据监控面板，实时显示游戏帧率、辅助状态及系统资源占用，运行状态一目了然。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🔧</div>
+                        <h3>自定义配置</h3>
+                        <p>提供丰富的参数设置，玩家可根据个人习惯自定义操作节奏、技能释放频率及辅助强度。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Games Section -->
+        <section id="games" class="games">
+            <div class="container">
+                <div class="section-title">
+                    <h2>支持热门游戏</h2>
+                    <p>覆盖主流MMORPG与动作RPG，持续更新中</p>
+                </div>
+                
+                <div class="game-tabs">
+                    <button class="tab-btn active">全部</button>
+                    <button class="tab-btn">MMORPG</button>
+                    <button class="tab-btn">动作射击</button>
+                    <button class="tab-btn">策略卡牌</button>
+                </div>
+
+                <div class="game-grid">
+                    <!-- Game Card 1 -->
+                    <div class="game-card">
+                        <div class="game-img">
+                            <span class="game-tag">热门</span>
+                            <img src="https://picsum.photos/seed/game1/400/250" alt="游戏截图">
+                        </div>
+                        <div class="game-info">
+                            <h3 class="game-title">幻世传说</h3>
+                            <div class="game-meta">
+                                <span>版本: v2.4.0</span>
+                                <span>状态: 正常</span>
+                            </div>
+                            <button class="download-btn" onclick="alert('正在前往下载页面...')">下载辅助</button>
+                        </div>
+                    </div>
+
+                    <!-- Game Card 2 -->
+                    <div class="game-card">
+                        <div class="game-img">
+                            <span class="game-tag">新服</span>
+                            <img src="https://picsum.photos/seed/game2/400/250" alt="游戏截图">
+                        </div>
+                        <div class="game-info">
+                            <h3 class="game-title">星际争霸</h3>
+                            <div class="game-meta">
+                                <span>版本: v1.8.2</span>
+                                <span>状态: 更新中</span>
+                            </div>
+                            <button class="download-btn" onclick="alert('正在前往下载页面...')">下载辅助</button>
+                        </div>
+                    </div>
+
+                    <!-- Game Card 3 -->
+                    <div class="game-card">
+                        <div class="game-img">
+                            <span class="game-tag">推荐</span>
+                            <img src="https://picsum.photos/seed/game3/400/250" alt="游戏截图">
+                        </div>
+                        <div class="game-info">
+                            <h3 class="game-title">荣耀战场</h3>
+                            <div class="game-meta">
+                                <span>版本: v3.1.0</span>
+                                <span>状态: 正常</span>
+                            </div>
+                            <button class="download-btn" onclick="alert('正在前往下载页面...')">下载辅助</button>
+                        </div>
+                    </div>
+
+                    <!-- Game Card 4 -->
+                    <div class="game-card">
+                        <div class="game-img">
+                            <span class="game-tag">热门</span>
+                            <img src="https://picsum.photos/seed/game4/400/250" alt="游戏截图">
+                        </div>
+                        <div class="game-info">
+                            <h3 class="game-title">暗影传说</h3>
+                            <div class="game-meta">
+                                <span>版本: v1.5.5</span>
+                                <span>状态: 正常</span>
+                            </div>
+                            <button class="download-btn" onclick="alert('正在前往下载页面...')">下载辅助</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guide" class="guide">
+            <div class="container">
+                <div class="guide-content">
+                    <div class="guide-text">
+                        <h2>新手安全使用指南</h2>
+                        <p>使用辅助工具时，请务必遵循以下原则，以确保您的游戏账号安全及辅助工具的正常运行。</p>
+                        <ul class="check-list">
+                            <li>确保游戏客户端为官方最新版本</li>
+                            <li>首次使用前请阅读对应游戏的详细设置说明</li>
+                            <li>不要在网吧或共享电脑上长期使用</li>
+                            <li>定期检查辅助工具的更新日志</li>
+                        </ul>
+                        <br>
+                        <a href="#" class="btn btn-outline">查看完整文档</a>
+                    </div>
+                    <div class="guide-box">
+                        <h4>⬇️ 快速安装步骤</h4>
+                        <ol>
+                            <li>点击上方“下载客户端”按钮，获取最新安装包。</li>
+                            <li>关闭杀毒软件或将其添加信任，运行安装程序。</li>
+                            <li>在辅助面板中选择您要玩的游戏，点击“一键启动”。</li>
+                            <li>进入游戏后，根据游戏内提示进行必要的配置。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <div class="section-title">
+                    <h2>常见问题解答</h2>
+                    <p>关于龙影辅助的疑问，这里都有答案</p>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">辅助工具会被封号吗？ <span>+</span></div>
+                        <div class="faq-answer">
+                            龙影辅助采用多重防护技术，经过大量玩家实测，封号率极低。但为了账号绝对安全，建议不要长时间开启所有功能，保持适度使用。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">支持哪些系统？ <span>+</span></div>
+                        <div class="faq-answer">
+                            目前支持Windows 7/8/10/11 64位操作系统，对硬件配置要求不高，普通家用电脑均可流畅运行。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何获取最新版？ <span>+</span></div>
+                        <div class="faq-answer">
+                            我们会在官网第一时间发布更新公告。您可以在客户端内的“设置”或“关于”页面查看版本信息，或关注我们的官方群获取推送。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">购买后如何激活？ <span>+</span></div>
+                        <div class="faq-answer">
+                            本站提供永久免费版体验，核心功能完全可用。如需解锁全部高级功能或无限制使用，请联系客服购买激活码。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <a href="#" class="logo">
+                        <span>龙</span>影辅助
+                    </a>
+                    <p>致力于为游戏玩家提供最优质、最安全的辅助工具。技术为本，服务至上，守护您的每一次游戏体验。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#features">功能介绍</a></li>
+                        <li><a href="#games">支持游戏</a></li>
+                        <li><a href="#guide">使用教程</a></li>
+                        <li><a href="#">更新日志</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">问题反馈</a></li>
+                        <li><a href="#">联系客服</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">用户协议</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>QQ: 123456789</li>
+                        <li>Email: support@longying.com</li>
+                        <li>工作时间: 9:00 - 22:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 龙影辅助 版权所有. 本站内容仅供学习交流，请勿用于非法用途.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Interaction Scripts
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // FAQ Toggle
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                item.querySelector('.faq-question').addEventListener('click', () => {
+                    // Close others
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Tab Switching Logic (Visual only for this demo)
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    // In a real app, this would filter the game grid
+                });
+            });
+
+            // Mobile Menu Toggle
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileBtn.addEventListener('click', () => {
+                if (navLinks.style.display === 'flex') {
+                    navLinks.style.display = 'none';
+                } else {
+                    navLinks.style.display = 'flex';
+                    navLinks.style.flexDirection = 'column';
+                    navLinks.style.position = 'absolute';
+                    navLinks.style.top = '100%';
+                    navLinks.style.left = '0';
+                    navLinks.style.right = '0';
+                    navLinks.style.background = '#0f172a';
+                    navLinks.style.padding = '1rem';
+                    navLinks.style.borderBottom = '1px solid #334155';
+                }
+            });
+        });
+    </script>
+</body>
+                              </html>
