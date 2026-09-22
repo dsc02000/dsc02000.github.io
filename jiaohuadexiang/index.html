@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="狡猾的相师在线阅读 - 热门相师题材小说推荐与阅读指南，包含剧情简介、人物分析和阅读技巧。">
+    <meta name="keywords" content="狡猾的相师,相师小说,在线阅读,小说推荐,玄学小说">
+    <title>狡猾的相师-在线阅读与小说推荐平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #d35400;
+            --bg-color: #f4f6f7;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a.active, nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .search-bar {
+            display: flex;
+            background: #f0f2f5;
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            padding: 5px;
+            width: 200px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #4ca1af 100%);
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* Book List */
+        .section-title {
+            font-size: 20px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .book-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .book-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .book-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .book-cover {
+            width: 140px;
+            height: 200px;
+            background-color: #ddd;
+            border-radius: 4px;
+            flex-shrink: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .book-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .book-info {
+            flex: 1;
+        }
+
+        .book-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .book-meta {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .book-desc {
+            font-size: 14px;
+            color: #555;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .book-tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            background-color: #f0f2f5;
+            color: #666;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .btn-read {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .rank-list {
+            list-style: none;
+        }
+
+        .rank-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 12px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .rank-item:nth-child(1) .rank-num { background-color: #e74c3c; }
+        .rank-item:nth-child(2) .rank-num { background-color: #f39c12; }
+        .rank-item:nth-child(3) .rank-num { background-color: #27ae60; }
+
+        .rank-name {
+            font-size: 14px;
+            color: var(--text-main);
+        }
+
+        .category-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .cat-link {
+            background: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            border: 1px solid #eee;
+        }
+
+        .cat-link:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        /* Info Section */
+        .info-section {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            margin-bottom: 40px;
+        }
+
+        .info-content h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .info-content p {
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .char-card {
+            text-align: center;
+        }
+
+        .char-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #eee;
+            margin: 0 auto 10px;
+            overflow: hidden;
+        }
+
+        .char-name {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            color: #bdc3c7;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .book-card {
+                flex-direction: column;
+            }
+
+            .book-cover {
+                width: 100%;
+                height: 200px;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+
+            .search-bar input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <span>相</span>师阁
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">玄幻</a></li>
+                    <li><a href="#">都市</a></li>
+                    <li><a href="#">历史</a></li>
+                    <li><a href="#">排行榜</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索小说、作者...">
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>狡猾的相师</h1>
+            <p>探秘相术玄机，揭秘命运背后的博弈。这里收录了关于“狡猾的相师”题材的精选小说与阅读指南。</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="main-grid">
+            <!-- Left Column: Content -->
+            <section class="content-area">
+                <div class="section-title">
+                    <span>精选推荐</span>
+                    <a href="#" style="font-size: 14px;">查看更多 &rarr;</a>
+                </div>
+
+                <div class="book-list">
+                    <!-- Book Item 1 -->
+                    <article class="book-card">
+                        <div class="book-cover">
+                            <img src="https://picsum.photos/seed/xiangshi1/140/200" alt="封面">
+                        </div>
+                        <div class="book-info">
+                            <h2 class="book-title"><a href="#">都市相师：狡猾的博弈</a></h2>
+                            <div class="book-meta">
+                                <span>作者：夜半鬼谈</span>
+                                <span>分类：都市异能</span>
+                                <span>状态：连载中</span>
+                            </div>
+                            <div class="book-tags">
+                                <span class="tag">相术</span>
+                                <span class="tag">鉴宝</span>
+                                <span class="tag">复仇</span>
+                            </div>
+                            <p class="book-desc">
+                                主角李玄机自幼研习相术，不拘泥于古法，善于在复杂的都市环境中利用面相与微表情进行心理博弈。面对豪门恩怨与江湖险恶，他步步为营，以“狡猾”著称，将相术运用到了极致，在黑白两道之间游刃有余。
+                            </p>
+                            <a href="#" class="btn-read">开始阅读</a>
+                        </div>
+                    </article>
+
+                    <!-- Book Item 2 -->
+                    <article class="book-card">
+                        <div class="book-cover">
+                            <img src="https://picsum.photos/seed/xiangshi2/140/200" alt="封面">
+                        </div>
+                        <div class="book-info">
+                            <h2 class="book-title"><a href="#">相面王：狡猾的谎言</a></h2>
+                            <div class="book-meta">
+                                <span>作者：玄门老道</span>
+                                <span>分类：灵异悬疑</span>
+                                <span>状态：已完结</span>
+                            </div>
+                            <div class="book-tags">
+                                <span class="tag">算命</span>
+                                <span class="tag">破案</span>
+                                <span class="tag">人性</span>
+                            </div>
+                            <p class="book-desc">
+                                在这个世界上，真话往往最伤人，而谎言却能救人。主角陈瞎子不仅相术精湛，更懂得如何“狡猾”地运用谎言来掩盖真相，引导案件走向。书中通过一个个离奇案件，探讨了相术与心理学的深层联系。
+                            </p>
+                            <a href="#" class="btn-read">开始阅读</a>
+                        </div>
+                    </article>
+
+                    <!-- Book Item 3 -->
+                    <article class="book-card">
+                        <div class="book-cover">
+                            <img src="https://picsum.photos/seed/xiangshi3/140/200" alt="封面">
+                        </div>
+                        <div class="book-info">
+                            <h2 class="book-title"><a href="#">风水师：狡猾的布局</a></h2>
+                            <div class="book-meta">
+                                <span>作者：云中君</span>
+                                <span>分类：风水玄学</span>
+                                <span>状态：连载中</span>
+                            </div>
+                            <div class="book-tags">
+                                <span class="tag">风水</span>
+                                <span class="tag">布局</span>
+                                <span class="tag">权谋</span>
+                            </div>
+                            <p class="book-desc">
+                                风水不仅是改运，更是布局。主角精通堪舆之术，擅长在宏观局势中寻找破绽。面对家族内斗与商业竞争，他从不硬碰硬，而是像狐狸一样狡猾地布下迷局，借力打力，最终登临巅峰。
+                            </p>
+                            <a href="#" class="btn-read">开始阅读</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="info-section">
+                    <div class="info-content">
+                        <h2>关于“狡猾的相师”题材</h2>
+                        <p>“狡猾的相师”这一关键词在小说领域通常指向一类特定的主角形象。与传统相师题材中正直、济世为怀的形象不同，“狡猾”一词赋予了角色更多的灰色地带和复杂性。这类作品往往侧重于：</p>
+                        <ul style="margin-left: 20px; margin-bottom: 20px; color: #555;">
+                            <li><strong>心理博弈：</strong> 相术不仅是看面相，更是看人心。主角通过观察微表情、肢体语言来洞察对手的真实意图。</li>
+                            <li><strong>利益交换：</strong> 相师往往掌握着某种信息差或资源，主角懂得如何利用这种优势进行利益最大化，而非单纯的施舍。</li>
+                            <li><strong>生存智慧：</strong> 在险恶的环境中，狡猾往往比正直更能保护自己，这类作品常描写主角如何利用规则漏洞和人性弱点化险为夷。</li>
+                        </ul>
+                        <p>阅读此类小说时，读者不仅能感受到解谜的快感，更能从主角的行事风格中学到一些关于人性观察和社会生存的技巧。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Column: Sidebar -->
+            <aside class="sidebar">
+                <div class="section-title">
+                    <span>热门排行</span>
+                </div>
+                <ul class="rank-list">
+                    <li class="rank-item">
+                        <span class="rank-num">1</span>
+                        <span class="rank-name">都市相师</span>
+                    </li>
+                    <li class="rank-item">
+                        <span class="rank-num">2</span>
+                        <span class="rank-name">相面大亨</span>
+                    </li>
+                    <li class="rank-item">
+                        <span class="rank-num">3</span>
+                        <span class="rank-name">算命先生</span>
+                    </li>
+                    <li class="rank-item">
+                        <span class="rank-num">4</span>
+                        <span class="rank-name">神算子</span>
+                    </li>
+                    <li class="rank-item">
+                        <span class="rank-num">5</span>
+                        <span class="rank-name">相师崛起</span>
+                    </li>
+                </ul>
+
+                <div class="section-title">
+                    <span>热门标签</span>
+                </div>
+                <div class="category-cloud">
+                    <a href="#" class="cat-link">相术入门</a>
+                    <a href="#" class="cat-link">面相解析</a>
+                    <a href="#" class="cat-link">手相命运</a>
+                    <a href="#" class="cat-link">风水布局</a>
+                    <a href="#" class="cat-link">鉴宝</a>
+                    <a href="#" class="cat-link">玄学小说</a>
+                    <a href="#" class="cat-link">都市传说</a>
+                    <a href="#" class="cat-link">心理博弈</a>
+                </div>
+
+                <div class="section-title">
+                    <span>角色图鉴</span>
+                </div>
+                <div class="character-grid">
+                    <div class="char-card">
+                        <div class="char-avatar">
+                            <img src="https://picsum.photos/seed/char1/80/80" alt="角色">
+                        </div>
+                        <div class="char-name">李玄机</div>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-avatar">
+                            <img src="https://picsum.photos/seed/char2/80/80" alt="角色">
+                        </div>
+                        <div class="char-name">陈瞎子</div>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-avatar">
+                            <img src="https://picsum.photos/seed/char3/80/80" alt="角色">
+                        </div>
+                        <div class="char-name">叶天南</div>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-avatar">
+                            <img src="https://picsum.photos/seed/char4/80/80" alt="角色">
+                        </div>
+                        <div class="char-name">苏清寒</div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">版权声明</a>
+                <a href="#">联系方式</a>
+                <a href="#">用户协议</a>
+            </div>
+            <p class="copyright">Copyright &copy; 2023 相师阁. All Rights Reserved.</p>
+            <p class="copyright" style="margin-top: 5px;">本站资源仅供学习交流，请勿用于商业用途。</p>
+        </div>
+    </footer>
+
+</body>
+  </html>
