@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人人影视下载 - 精选影视资源聚合与观看指南</title>
+    <meta name="description" content="人人影视下载资源站提供最新热门美剧、日剧、韩剧及动漫的高清视频资源索引与观看指南。包含最新更新列表、高清画质推荐及资源下载安全提示。">
+    <meta name="keywords" content="人人影视下载,影视资源,美剧下载,日剧推荐,动漫天堂,高清影视">
+    <style>
+        :root {
+            --primary-color: #e50914;
+            --secondary-color: #1a1a1a;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f4f4f4;
+            --bg-card: #ffffff;
+            --spacing-unit: 16px;
+            --border-radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: #000;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #fff;
+        }
+
+        .search-box {
+            display: flex;
+            background: #333;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            border: none;
+            padding: 8px 12px;
+            background: transparent;
+            color: #fff;
+            outline: none;
+            width: 200px;
+        }
+
+        .search-box button {
+            background: var(--primary-color);
+            border: none;
+            color: #fff;
+            padding: 0 12px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/moviebg/1600/600') center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 32px;
+            border-radius: var(--border-radius);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 20px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Grid Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        /* Content Area */
+        .section-title {
+            font-size: 24px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title a {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .section-title a:hover {
+            color: var(--primary-color);
+        }
+
+        .episode-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .card-body {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .card-meta span {
+            margin-right: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #eee;
+            color: #666;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .tag.hot {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background: #b20710;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .sidebar-box {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: var(--border-radius);
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .rank-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background: #eee;
+            color: #666;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 12px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .rank-list li:nth-child(1) .rank-num { background: #ff4757; color: #fff; }
+        .rank-list li:nth-child(2) .rank-num { background: #ffa502; color: #fff; }
+        .rank-list li:nth-child(3) .rank-num { background: #2ed573; color: #fff; }
+
+        .rank-info {
+            flex: 1;
+            font-size: 14px;
+        }
+
+        .rank-info a:hover {
+            color: var(--primary-color);
+        }
+
+        .rank-ep {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* Info Section */
+        .info-section {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin-bottom: 40px;
+        }
+
+        .info-header {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .info-cover {
+            width: 200px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .info-content h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .info-meta {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .info-desc {
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .episode-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .episode-btn {
+            display: block;
+            text-align: center;
+            background: #f9f9f9;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #333;
+            border: 1px solid #eee;
+        }
+
+        .episode-btn:hover {
+            background: #f0f0f0;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            color: #888;
+            padding: 40px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 0;
+                gap: 10px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .info-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <span>资源</span>聚合
+            </div>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">美剧</a>
+                <a href="#">日剧</a>
+                <a href="#">韩剧</a>
+                <a href="#">动漫</a>
+                <a href="#">综艺</a>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索剧集或资源...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div>
+                <h1>高清影视资源聚合</h1>
+                <p>提供最新美剧、日剧、韩剧及动漫的在线观看与下载指南，致力于为影迷提供最便捷的资源索引。</p>
+            </div>
+        </section>
+
+        <!-- Latest Updates Grid -->
+        <section>
+            <div class="section-title">
+                <span>最新更新</span>
+                <a href="#">查看更多 &rarr;</a>
+            </div>
+            <div class="episode-grid">
+                <!-- Card 1 -->
+                <article class="card">
+                    <img src="https://picsum.photos/seed/breaking/300/400" alt="剧名封面" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">绝命毒师 第6季 第12集</h3>
+                        <div class="card-meta">
+                            <span class="tag hot">HDTV</span>
+                            <span>更新至 S6E12</span>
+                        </div>
+                        <a href="#" class="btn">立即观看</a>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="card">
+                    <img src="https://picsum.photos/seed/stranger/300/400" alt="剧名封面" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">怪奇物语 第4季 第5集</h3>
+                        <div class="card-meta">
+                            <span class="tag">1080P</span>
+                            <span>更新至 S4E05</span>
+                        </div>
+                        <a href="#" class="btn">立即观看</a>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="card">
+                    <img src="https://picsum.photos/seed/got/300/400" alt="剧名封面" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">权力的游戏 最终季</h3>
+                        <div class="card-meta">
+                            <span class="tag">蓝光</span>
+                            <span>全集</span>
+                        </div>
+                        <a href="#" class="btn">立即观看</a>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="card">
+                    <img src="https://picsum.photos/seed/detective/300/400" alt="剧名封面" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">神探夏洛克 S4E1</h3>
+                        <div class="card-meta">
+                            <span class="tag">HDTV</span>
+                            <span>更新至 S4E01</span>
+                        </div>
+                        <a href="#" class="btn">立即观看</a>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="card">
+                    <img src="https://picsum.photos/seed/spy/300/400" alt="剧名封面" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">绝命律师 S5E16</h3>
+                        <div class="card-meta">
+                            <span class="tag">蓝光</span>
+                            <span>更新至 S5E16</span>
+                        </div>
+                        <a href="#" class="btn">立即观看</a>
+                    </div>
+                </article>
+
+                 <!-- Card 6 -->
+                 <article class="card">
+                    <img src="https://picsum.photos/seed/joker/300/400" alt="剧名封面" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">哥谭 S5E12</h3>
+                        <div class="card-meta">
+                            <span class="tag">HDTV</span>
+                            <span>更新至 S5E12</span>
+                        </div>
+                        <a href="#" class="btn">立即观看</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Main Content & Sidebar -->
+        <div class="main-grid">
+            <!-- Detailed Info Section -->
+            <section class="info-section">
+                <div class="info-header">
+                    <img src="https://picsum.photos/seed/office/300/400" alt="办公室风云封面" class="info-cover">
+                    <div class="info-content">
+                        <h2>办公室风云</h2>
+                        <div class="info-meta">
+                            <span>类型: 喜剧 / 剧情</span> | 
+                            <span>年份: 2005</span> | 
+                            <span>地区: 美国</span>
+                        </div>
+                        <p class="info-desc">
+                            《办公室风云》（The Office）是一部美国情景喜剧，由美国广播公司（ABC）制作，于2005年3月24日首播。该剧主要取景于宾夕法尼亚州斯克兰顿的杜邦包装公司，讲述了杜邦包装公司分部经理迈克尔·斯科特与其员工之间的职场生活故事。该剧以其独特的伪纪录片风格和幽默的职场讽刺而广受好评，曾获得艾美奖和金球奖等多项大奖。
+                        </p>
+                        <a href="#" class="btn">查看完整剧集列表</a>
+                    </div>
+                </div>
+                <div class="section-title" style="margin-top: 30px; border: none; padding: 0;">
+                    <span>全集播放列表</span>
+                </div>
+                <div class="episode-list">
+                    <a href="#" class="episode-btn">S1E01</a>
+                    <a href="#" class="episode-btn">S1E02</a>
+                    <a href="#" class="episode-btn">S1E03</a>
+                    <a href="#" class="episode-btn">S1E04</a>
+                    <a href="#" class="episode-btn">S1E05</a>
+                    <a href="#" class="episode-btn">S1E06</a>
+                    <a href="#" class="episode-btn">S1E07</a>
+                    <a href="#" class="episode-btn">S1E08</a>
+                    <a href="#" class="episode-btn">S1E09</a>
+                    <a href="#" class="episode-btn">S1E10</a>
+                    <a href="#" class="episode-btn">S1E11</a>
+                    <a href="#" class="episode-btn">S1E12</a>
+                </div>
+            </section>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-box">
+                    <h3 class="sidebar-title">热门排行榜</h3>
+                    <ul class="rank-list">
+                        <li>
+                            <span class="rank-num">1</span>
+                            <div class="rank-info"><a href="#">绝命毒师</a></div>
+                            <span class="rank-ep">S5E16</span>
+                        </li>
+                        <li>
+                            <span class="rank-num">2</span>
+                            <div class="rank-info"><a href="#">纸牌屋</a></div>
+                            <span class="rank-ep">S3E12</span>
+                        </li>
+                        <li>
+                            <span class="rank-num">3</span>
+                            <div class="rank-info"><a href="#">老友记</a></div>
+                            <span class="rank-ep">S10E24</span>
+                        </li>
+                        <li>
+                            <span class="rank-num">4</span>
+                            <div class="rank-info"><a href="#">生活大爆炸</a></div>
+                            <span class="rank-ep">S7E14</span>
+                        </li>
+                        <li>
+                            <span class="rank-num">5</span>
+                            <div class="rank-info"><a href="#">行尸走肉</a></div>
+                            <span class="rank-ep">S8E16</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-box">
+                    <h3 class="sidebar-title">热门分类</h3>
+                    <ul class="rank-list">
+                        <li><a href="#">美剧 - 4K超清</a></li>
+                        <li><a href="#">日剧 - 热门推荐</a></li>
+                        <li><a href="#">韩剧 - 浪漫爱情</a></li>
+                        <li><a href="#">动漫 - 热血少年</a></li>
+                        <li><a href="#">英剧 - 经典悬疑</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p>本站是一个纯粹的影视资源索引与观看指南网站。我们致力于整理全网优质影视资源信息，方便影迷查找和观看。所有资源均来自互联网，仅供学习交流使用，请于下载后24小时内删除。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">美剧专区</a></li>
+                        <li><a href="#">日剧专区</a></li>
+                        <li><a href="#">韩剧专区</a></li>
+                        <li><a href="#">动漫天堂</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">资源下载说明</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系站长</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 资源聚合网. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
