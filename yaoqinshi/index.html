@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>妖琴师-阴阳师手游角色图鉴、御魂搭配与实战攻略</title>
+    <meta name="description" content="本站提供《阴阳师》手游中SSR式神“妖琴师”的详细图鉴信息，包含式神定位、技能解析、御魂推荐（火灵/招财猫）、御魂面板数值及PVP/PVE实战阵容搭配指南。">
+    <meta name="keywords" content="妖琴师,阴阳师,SSR式神,阴阳师攻略,阴阳师御魂搭配,阴阳师阵容推荐">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #5c2e7c;
+            --secondary-color: #9b59b6;
+            --accent-color: #f1c40f;
+            --bg-color: #f9f7f2;
+            --card-bg: #ffffff;
+            --text-main: #2c3e50;
+            --text-sub: #7f8c8d;
+            --border-radius: 12px;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://picsum.photos/seed/yaoqinshi/1600/600') no-repeat center center/cover;
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(44, 62, 80, 0.7);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            font-weight: bold;
+            border-radius: 30px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(241, 196, 15, 0.4);
+        }
+
+        /* Main Layout */
+        main {
+            padding: 3rem 0;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-left: 0.8rem;
+            border-left: 5px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-tag {
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-bottom: 1rem;
+        }
+
+        /* Skill List */
+        .skill-list {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .skill-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-name {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .skill-level {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        /* Stats Table */
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .stats-table th, .stats-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .stats-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: var(--text-sub);
+        }
+
+        .stats-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Build Box */
+        .build-box {
+            background: linear-gradient(to bottom right, #fff, #fdfdfd);
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .build-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .build-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .build-label {
+            color: var(--text-sub);
+        }
+
+        /* Guide/Article */
+        .guide-text {
+            line-height: 1.8;
+            font-size: 1.05rem;
+            color: #34495e;
+        }
+
+        .guide-text p {
+            margin-bottom: 1.2rem;
+        }
+
+        .highlight-box {
+            background-color: #e8f6f3;
+            border-left: 4px solid #1abc9c;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                display: none; /* Simple hiding for mobile for this demo */
+            }
+            
+            .header-content {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-content">
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+            妖琴师图鉴
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">角色介绍</a></li>
+                <li><a href="#">技能详解</a></li>
+                <li><a href="#">御魂搭配</a></li>
+                <li><a href="#">阵容推荐</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="hero-content">
+        <h1>妖琴师</h1>
+        <p>拉条辅助的核心式神，掌控战斗节奏的旋律大师</p>
+        <a href="#guide" class="btn">查看实战攻略</a>
+    </div>
+</div>
+
+<main class="container">
+    <div class="grid-layout">
+        <!-- Left Column: Main Content -->
+        <div class="main-column">
+            <!-- Introduction -->
+            <section id="intro">
+                <h2 class="section-title">角色简介</h2>
+                <article class="guide-text">
+                    <p><strong>妖琴师</strong>是《阴阳师》手游中的SR级式神，虽然定位为SR，但其核心的“拉条”能力使其在游戏前期和特定阵容中拥有极高的战略价值。他身着古琴，手持琴键，能够通过演奏美妙的旋律来改变场上单位的速度。</p>
+                    <div class="highlight-box">
+                        <strong>核心机制：</strong>妖琴师的一技能可以拉条（增加行动条），二技能提供攻击力加成，三技能则是范围性的拉条与增伤。他是斗技中控制流队伍和PVE速刷队伍不可或缺的辅助。</div>
+                    <p>与同为拉条位的大天狗相比，妖琴师不消耗鬼火且带有控制效果，是新手玩家最友好的拉条式神之一。</p>
+                </article>
+            </section>
+
+            <!-- Skills -->
+            <section id="skills">
+                <h2 class="section-title">技能详解</h2>
+                <div class="skill-list">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">一技能：琴音缭绕</span>
+                            <span class="skill-level">Lv.1 - Lv.5</span>
+                        </div>
+                        <p>妖琴师弹奏古琴，使全体队友的行动条增加15%，并造成攻击力100%的伤害。这是妖琴师最基础的功能，用于保证队友的先手机会。</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">二技能：共鸣之律</span>
+                            <span class="skill-level">Lv.1 - Lv.5</span>
+                        </div>
+                        <p>妖琴师弹奏古琴，为所有友方目标增加攻击力20%。该效果可以叠加，是提升队伍输出的关键辅助技能。</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">三技能：狂想之律动</span>
+                            <span class="skill-level">Lv.1 - Lv.5</span>
+                        </div>
+                        <p>妖琴师弹奏古琴，使全体队友行动条增加25%，并造成攻击力100%的伤害。该技能有25%的概率使目标陷入“混乱”状态。这是妖琴师在PVP中具备控制能力的来源。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Builds & Recommendations -->
+            <section id="guide">
+                <h2 class="section-title">御魂搭配与阵容</h2>
+                <article class="guide-text">
+                    <h3>推荐御魂方案</h3>
+                    <p>妖琴师作为拉条位，首要属性是速度。为了最大化拉条效率，通常推荐以下两种御魂配置：</p>
+                    
+                    <div class="build-box">
+                        <div class="build-title">方案一：招财猫（PVE/日常推荐）</div>
+                        <div class="build-row">
+                            <span class="build-label">御魂名称：</span>
+                            <span>招财猫 4件套 + 速度/效果抵抗 2件套</span>
+                        </div>
+                        <div class="build-row">
+                            <span class="build-label">速度属性：</span>
+                            <span>188+ (满速) 或 195+</span>
+                        </div>
+                        <div class="build-row">
+                            <span class="build-label">属性解析：</span>
+                            <span>招财猫每回合有30%概率提供鬼火，确保队伍在长时间战斗中不缺火。速度拉满是关键。</span>
+                        </div>
+                    </div>
+
+                    <div class="build-box">
+                        <div class="build-title">方案二：火灵（PVP/斗技推荐）</div>
+                        <div class="build-row">
+                            <span class="build-label">御魂名称：</span>
+                            <span>火灵 4件套 + 效果抵抗/生命 2件套</span>
+                        </div>
+                        <div class="build-row">
+                            <span class="build-label">速度属性：</span>
+                            <span>188+ (满速) 或 195+</span>
+                        </div>
+                        <div class="build-row">
+                            <span class="build-label">属性解析：</span>
+                            <span>开局直接提供3点鬼火，让队伍核心输出能直接释放大招，适合快节奏的斗技环境。</span>
+                        </div>
+                    </div>
+
+                    <h3>热门阵容搭配</h3>
+                    <p>1. <strong>控制流队伍：</strong> 妖琴师 + 鬼使黑 + 山兔 + 椒图 + 雪女。利用妖琴师拉条，确保雪女先手控制，椒图分摊伤害，鬼使黑收割。</p>
+                    <p>2. <strong>逢魔之时速刷：</strong> 妖琴师 + 姑获鸟 + 阎魔 + 辉夜姬/招财猫。妖琴师负责拉条，保证全员行动，快速清理小怪。</p>
+                </article>
+            </section>
+        </div>
+
+        <!-- Right Column: Sidebar -->
+        <aside class="sidebar">
+            <!-- Stats -->
+            <section>
+                <h2 class="section-title">面板属性</h2>
+                <table class="stats-table">
+                    <thead>
+                        <tr>
+                            <th>属性</th>
+                            <th>数值 (Lv.99)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>生命</td>
+                            <td>9,654</td>
+                        </tr>
+                        <tr>
+                            <td>攻击</td>
+                            <td>6,898</td>
+                        </tr>
+                        <tr>
+                            <td>速度</td>
+                            <td>120 (基础)</td>
+                        </tr>
+                        <tr>
+                            <td>防御</td>
+                            <td>5,432</td>
+                        </tr>
+                        <tr>
+                            <td>效果抵抗</td>
+                            <td>0 (基础)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Recommended Builds -->
+            <section>
+                <h2 class="section-title">热门搭配</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <img src="https://picsum.photos/seed/yaoqin1/300/200" alt="拉条流" class="card-img">
+                        <div class="card-body">
+                            <span class="card-tag">PVP</span>
+                            <h3>拉条控制流</h3>
+                            <p>雪女+妖琴师+镰鼬，利用控制链打乱对手节奏。</p>
+                            <a href="#" style="color:var(--secondary-color); font-size:0.9rem;">查看详情 &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://picsum.photos/seed/yaoqin2/300/200" alt="速刷流" class="card-img">
+                        <div class="card-body">
+                            <span class="card-tag">PVE</span>
+                            <h3>魂土速刷</h3>
+                            <p>妖琴师+追月神+AOE输出，追求极致的刷图效率。</p>
+                            <a href="#" style="color:var(--secondary-color); font-size:0.9rem;">查看详情 &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section>
+                <h2 class="section-title">常见问题</h2>
+                <div style="font-size: 0.95rem; color: #555;">
+                    <details style="margin-bottom: 0.8rem; cursor: pointer;">
+                        <summary style="font-weight: 600; color: var(--primary-color);">妖琴师和山兔哪个拉条好？</summary>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">妖琴师不消耗鬼火且带有控制，山兔消耗鬼火。新手推荐妖琴师，省火且稳定。</p>
+                    </details>
+                    <details style="margin-bottom: 0.8rem; cursor: pointer;">
+                        <summary style="font-weight: 600; color: var(--primary-color);">三技能的混乱有用吗？</summary>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">有用。在PVP中，混乱可以让对手攻击队友，是控制流队伍的重要一环。</p>
+                    </details>
+                </div>
+            </section>
+        </aside>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2023 妖琴师图鉴网. 非官方粉丝站点，内容仅供学习交流。</p>
+        <p>阴阳师是网易公司的游戏产品，本站与网易公司无任何关联。</p>
+    </div>
+</footer>
+
+</body>
+</html>
